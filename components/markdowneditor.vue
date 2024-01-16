@@ -9,19 +9,19 @@ import { ref, onMounted, computed } from "vue";
 const code = ref("");
 const content = ref(false);
 const markdownH1 = () => {
-  code.value = code.value + "\n# ";
+  code.value = code.value + "\n# Header 1";
   document.getElementById("code").select();
 };
 const markdownH2 = () => {
-  code.value = code.value + "\n## ";
+  code.value = code.value + "\n## Header 2";
   document.getElementById("code").select();
 };
 const markdownH3 = () => {
-  code.value = code.value + "\n### ";
+  code.value = code.value + "\n### Header 3";
   document.getElementById("code").select();
 };
 const markdownImage = () => {
-  code.value = code.value + "\n![Alt text](/path/to/img.jpg)";
+  code.value = code.value + "\n![Alt text](https://placehold.co/600x400)";
   document.getElementById("code").select();
 };
 const markdownVideo = () => {
@@ -63,7 +63,10 @@ useNuxtApp().$listen("changeContent", () => {
   content.value = !content.value;
 });
 onMounted(() => {
-  code.value = `# Markdown Editor`;
+  code.value = `# Header 1 \n\n## Header 2\n\n### Header 3\n\n**bold** *italic*\n\nThis is a [link](https://exemplar.com)\n\n![imag alt-text](https://placehold.co/600x400)\n\n| **Make it bold**  | **Make it bold** |
+| ------------- | ------------- |
+| Content in the left column  | Content in the right column  |
+| Content in the left column  | Content in the right column  |`;
 });
 const coderenderd = computed(() => {
   return useNuxtApp().$mdit.render(code.value);
@@ -73,7 +76,7 @@ const coderenderd = computed(() => {
 @use "~/assets/scss/_variables.scss";
 .editor {
   position: relative;
-  min-height: 70vh;
+  min-height: 68vh;
   display: flex;
   overflow: hidden;
   .code,

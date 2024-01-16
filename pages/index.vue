@@ -1,16 +1,23 @@
 <template>
   <div id="app-content">
-    <v-btn text class="content-btn" :elevation="0" @click="changeContent">{{
-      content //add mdi-arrow down
-        ? "Content"
-        : "Editor"
-    }}</v-btn>
+    <v-btn
+      text
+      class="content-btn"
+      :ripple="false"
+      :elevation="0"
+      @click="changeContent"
+      >{{ content ? "Content" : "Editor" }}</v-btn
+    >
     <div class="editor-wrapper">
       <headings />
-      <div class="raperparent">
-        <div class="rapper"></div>
+      <div class="wraperparent">
+        <div class="wrapper"></div>
       </div>
       <editor />
+    </div>
+    <div class="footer">
+      **Bold** *Italic* _Underline_ - List with bullets # H1 ## H2 ### H3 ####
+      H4 ##### H5 ###### H6
     </div>
   </div>
 </template>
@@ -26,15 +33,16 @@ const changeContent = () => {
 </script>
 <style lang="scss" scoped>
 .content-btn {
-  color: #999ea2;
-
-  /* Card or Section Title */
+  padding: 0px 104px 40px 0px;
+  margin-top: 40px;
+  margin-left: 40px;
+  font-family: Helvetica Neue;
   font-size: 20px;
   font-style: normal;
   font-weight: 500;
-  line-height: 115%; /* 23px */
+  line-height: 115%;
 }
-.raperparent {
+.wraperparent {
   width: 100%;
   height: 10px;
   display: flex;
@@ -42,7 +50,7 @@ const changeContent = () => {
   align-items: center;
   flex-shrink: 0;
 }
-.rapper {
+.wrapper {
   width: 98%;
   height: 1px;
   flex-shrink: 0;
@@ -50,10 +58,10 @@ const changeContent = () => {
   background: #fff;
 }
 .editor-wrapper {
-  margin-top: 40px;
-  margin-bottom: 40px;
-  width: 100%;
-
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: 40px;
+  margin-right: 40px;
   font-size: 100%;
   transition: all 0.4s;
   flex-shrink: 0;
@@ -61,5 +69,19 @@ const changeContent = () => {
   border: 1px solid var(--elements-input-border, #e0e2e3);
   background: #fff;
   transition: background 0.4s;
+}
+#app-content {
+  background: var(--background, white);
+  transition: background 0.4s;
+}
+.footer {
+  color: rgba(51, 61, 69, 0.5);
+  margin: 0px 40px 40px 40px;
+
+  font-family: Helvetica Neue;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 145%; /* 18.85px */
 }
 </style>
