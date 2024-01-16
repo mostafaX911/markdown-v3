@@ -1,17 +1,13 @@
 <template>
   <div class="editor">
-    <textarea
-      id="code"
-      v-model="code"
-      :style="{ color: actualSkin.color }"
-      class="code"
-    ></textarea>
-    <div class="result" v-html="coderenderd"></div>
+    <textarea id="code" v-model="code" class="code" v-if="!content"></textarea>
+    <div class="result" v-html="coderenderd" v-else></div>
   </div>
 </template>
 <script setup>
 import { ref, onMounted, computed } from "vue";
 const code = ref("");
+const content = ref(false);
 const markdownH1 = () => {
   code.value = code.value + "\n# ";
   document.getElementById("code").select();
@@ -59,41 +55,37 @@ useNuxtApp().$listen("markdownFT", markdownFT);
 useNuxtApp().$listen("markdownLink", markdownLink);
 useNuxtApp().$listen("markdownTable", markdownTable);
 useNuxtApp().$listen("markdownTR", markdownTR);
-
+useNuxtApp().$listen("markdownImagedl", (url) => {
+  code.value = code.value + "\n![Alt text](" + url + ")";
+  document.getElementById("code").select();
+});
+useNuxtApp().$listen("changeContent", () => {
+  content.value = !content.value;
+});
 onMounted(() => {
   code.value = `# Markdown Editor`;
 });
 const coderenderd = computed(() => {
   return useNuxtApp().$mdit.render(code.value);
 });
-
-const actualSkin = ref({
-  color: "#0cc",
-  background: "rgba(0, 204, 204, .4)",
-  wall: "rgba(0, 204, 204, .15)",
-});
 </script>
 <style lang="scss">
-// @import "~/assets/scss/_variables.scss";
-// @import url("~/assets/scss/_variables.scss");
 @use "~/assets/scss/_variables.scss";
 .editor {
   position: relative;
-  min-height: 100%;
-  background: rgba($black, 0.2);
+  min-height: 90%;
   display: flex;
   overflow: hidden;
   .code,
   .result,
   .settings {
-    width: 50%;
     padding: 1rem;
   }
   .code {
+    width: 100%;
     resize: none;
     border: none;
     font-family: $code-font;
-    background: rgba($black, 0.8);
 
     outline: none;
     transition: color 0.4s;

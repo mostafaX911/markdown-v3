@@ -1,15 +1,15 @@
 <template>
   <v-app-bar density="compact" class="d-flex" :elevation="0">
-    <v-btn text @click="markdownH1">H1</v-btn>
-    <v-btn text @click="markdownH2">H2</v-btn>
-    <v-btn text @click="markdownH3">H3</v-btn>
+    <v-btn variant="plain" @click="markdownH1">H1</v-btn>
+    <v-btn variant="plain" @click="markdownH2">H2</v-btn>
+    <v-btn variant="plain" @click="markdownH3">H3</v-btn>
     <image-uploader />
-    <v-btn text @click="markdownImage">Image</v-btn>
-    <v-btn text @click="markdownVideo">Video</v-btn>
-    <v-btn text @click="markdownFT">Footnote</v-btn>
-    <v-btn text @click="markdownLink">Link</v-btn>
-    <v-btn text @click="markdownTable">Table</v-btn>
-    <v-btn text @click="markdownTR">Table row</v-btn>
+    <v-btn variant="plain" @click="markdownImage">Image</v-btn>
+    <v-btn variant="plain" @click="markdownVideo">Video</v-btn>
+    <v-btn variant="plain" @click="markdownFT">Footnote</v-btn>
+    <v-btn variant="plain" @click="markdownLink">Link</v-btn>
+    <v-btn variant="plain" @click="markdownTable">Table</v-btn>
+    <v-btn variant="plain" @click="markdownTR">Table row</v-btn>
   </v-app-bar>
 </template>
 <script setup>
@@ -45,5 +45,12 @@ const markdownTR = () => {
 <style lang="scss" scoped>
 header {
   position: relative !important;
+}
+button {
+  /* Input / Placeholder */
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 145%; /* 23.2px */
 }
 </style>

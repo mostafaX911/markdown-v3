@@ -9,6 +9,10 @@
 
 <style lang="scss">
 @import "~/assets/scss/_variables.scss";
+.v-application__wrap {
+  justify-content: center;
+  align-items: center;
+}
 *,
 *::before,
 *::after {
@@ -27,12 +31,13 @@ h6 {
   margin-top: 0;
 }
 #app {
-  width: 80rem;
-  max-width: 100%;
-  height: 400px;
-  margin: 0 auto;
-  padding: 0 1rem;
-  font-size: 100%;
-  transition: all 0.4s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  min-width: 100vw;
+  background: var(--background, white);
+  transition: background 0.4s;
 }
 </style>
