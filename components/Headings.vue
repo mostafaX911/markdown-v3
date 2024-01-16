@@ -5,9 +5,9 @@
     <v-btn variant="plain" @click="markdownH3">H3</v-btn>
     <image-uploader />
     <v-btn variant="plain" @click="markdownImage">Image</v-btn>
-    <v-btn variant="plain" @click="markdownVideo">Video</v-btn>
     <v-btn variant="plain" @click="markdownFT">Footnote</v-btn>
     <v-btn variant="plain" @click="markdownLink">Link</v-btn>
+    <v-btn variant="plain" @click="markdownVideo">Video</v-btn>
     <v-btn variant="plain" @click="markdownTable">Table</v-btn>
     <v-btn variant="plain" @click="markdownTR">Table row</v-btn>
   </v-app-bar>

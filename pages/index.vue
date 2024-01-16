@@ -5,11 +5,13 @@
         ? "Content"
         : "Editor"
     }}</v-btn>
-    <headings />
-    <div class="raperparent">
-      <div class="rapper"></div>
+    <div class="editor-wrapper">
+      <headings />
+      <div class="raperparent">
+        <div class="rapper"></div>
+      </div>
+      <editor />
     </div>
-    <editor />
   </div>
 </template>
 <script setup>
@@ -24,9 +26,6 @@ const changeContent = () => {
 </script>
 <style lang="scss" scoped>
 .content-btn {
-  position: absolute;
-  top: 2%;
-  left: 0%;
   color: #999ea2;
 
   /* Card or Section Title */
@@ -50,9 +49,10 @@ const changeContent = () => {
   border: 1px solid var(--elements-input-border, #e0e2e3);
   background: #fff;
 }
-#app-content {
+.editor-wrapper {
+  margin-top: 40px;
+  margin-bottom: 40px;
   width: 100%;
-  height: 80%;
 
   font-size: 100%;
   transition: all 0.4s;

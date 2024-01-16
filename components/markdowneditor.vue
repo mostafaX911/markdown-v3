@@ -29,7 +29,7 @@ const markdownVideo = () => {
   document.getElementById("code").select();
 };
 const markdownFT = () => {
-  code.value = code.value + "\nFootnote text.^[1]";
+  code.value = code.value + "\ntext^[Footnote.]";
   document.getElementById("code").select();
 };
 const markdownLink = () => {
@@ -73,7 +73,7 @@ const coderenderd = computed(() => {
 @use "~/assets/scss/_variables.scss";
 .editor {
   position: relative;
-  min-height: 90%;
+  min-height: 70vh;
   display: flex;
   overflow: hidden;
   .code,
@@ -92,6 +92,9 @@ const coderenderd = computed(() => {
   }
   .result {
     background: $white;
+    width: 100%;
+    height: 100%;
+
     hr {
       border: none;
       border-bottom: 1px solid rgba($black, 0.2);

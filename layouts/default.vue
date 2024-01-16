@@ -10,8 +10,7 @@
 <style lang="scss">
 @import "~/assets/scss/_variables.scss";
 .v-application__wrap {
-  justify-content: center;
-  align-items: center;
+  padding-top: 30px;
 }
 *,
 *::before,
